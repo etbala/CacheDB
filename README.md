@@ -1,6 +1,4 @@
-# CacheDB
- 
- ## Overview
+## Overview
 CacheDB is an in-memory key-value store designed for high performance and low latency. It supports string keys and values, as well as sorted sets, with a command interface similar to that of Redis. CacheDB allows clients to perform common database operations such as setting and getting values, manipulating sorted sets, and managing key expirations (TTLs). The database is built using custom data structures, including hash tables, AVL trees, heaps, and linked lists, to optimize for speed and efficiency.
 
 ## Features
@@ -8,7 +6,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 - In-Memory Storage: Fast data access with data stored directly in memory.
 - String and Sorted Set Support: Manage simple key-value pairs and sorted sets for ordered data retrieval.
 - TTL Management: Set expiration times for keys to automatically manage data lifecycle.
-- Non-Blocking I/O: Handles multiple client connections efficiently using non-blocking sockets and poll().
+- Non-Blocking I/O: Handles multiple client connections efficiently.
 
 ## Commands
 
