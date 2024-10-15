@@ -1,3 +1,5 @@
+![Status](https://github.com/etbala/CacheDB/actions/workflows/cmake-single-platform.yml/badge.svg)
+
 ## Overview
 CacheDB is an in-memory key-value store designed for high performance and low latency. It supports string keys and values, as well as sorted sets, with a command interface similar to that of Redis. CacheDB allows clients to perform common database operations such as setting and getting values, manipulating sorted sets, and managing key expirations (TTLs).
 
