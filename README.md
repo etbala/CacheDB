@@ -1,10 +1,10 @@
 ## Overview
-CacheDB is an in-memory key-value store designed for high performance and low latency. It supports string keys and values, as well as sorted sets, with a command interface similar to that of Redis. CacheDB allows clients to perform common database operations such as setting and getting values, manipulating sorted sets, and managing key expirations (TTLs). The database is built using custom data structures, including hash tables, AVL trees, heaps, and linked lists, to optimize for speed and efficiency.
+CacheDB is an in-memory key-value store designed for high performance and low latency. It supports string keys and values, as well as sorted sets, with a command interface similar to that of Redis. CacheDB allows clients to perform common database operations such as setting and getting values, manipulating sorted sets, and managing key expirations (TTLs).
 
 ## Features
 
 - In-Memory Storage: Fast data access with data stored directly in memory.
-- String and Sorted Set Support: Manage simple key-value pairs and sorted sets for ordered data retrieval.
+- String and Sorted Set (zset) Support: Manage simple key-value pairs and sorted sets for ordered data retrieval.
 - TTL Management: Set expiration times for keys to automatically manage data lifecycle.
 - Non-Blocking I/O: Handles multiple client connections efficiently.
 
@@ -14,7 +14,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Retrieves the string value associated with the specified key.
 
-**Usage**: `get key`
+**Usage**: `get <key>`
 
 **Behavior**: 
 
@@ -27,7 +27,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Stores a string value under the specified key.
 
-**Usage**: `set key value`
+**Usage**: `set <key> <value>`
 
 **Behavior**: 
 
@@ -41,7 +41,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Deletes the specified key from the database.
 
-**Usage**: `del key`
+**Usage**: `del <key>`
 
 **Behavior**: 
 
@@ -66,7 +66,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Adds a member with a given score to a sorted set.
 
-**Usage**: `zadd zset_name score member`
+**Usage**: `zadd <zset_name> <score> <member>`
 
 **Behavior**: 
 
@@ -79,7 +79,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Removes a member from a sorted set.
 
-**Usage**: `zrem zset_name member`
+**Usage**: `zrem <zset_name> <member>`
 
 **Behavior**: 
 
@@ -92,7 +92,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Retrieves the score associated with a member in a sorted set.
 
-**Usage**: `zscore zset_name member`
+**Usage**: `zscore <zset_name> <member>`
 
 **Behavior**: 
 
@@ -105,7 +105,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Queries the sorted set for members starting from a given score and member.
 
-**Usage**: `zquery zset_name score member offset limit`
+**Usage**: `zquery <zset_name> <score> <member> <offset> <limit>`
 
 **Behavior**: 
 
@@ -118,7 +118,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Sets a time-to-live (TTL) for a key in milliseconds.
 
-**Usage**: `pexpire key milliseconds`
+**Usage**: `pexpire <key> <milliseconds>`
 
 **Behavior**: 
 
@@ -132,7 +132,7 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 
 **Purpose**: Retrieves the remaining TTL for a key in milliseconds.
 
-**Usage**: `pttl key`
+**Usage**: `pttl <key>`
 
 **Behavior**: 
 
