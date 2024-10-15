@@ -1,8 +1,6 @@
 
 #include "hashtable.h"
 
-#include <cstring>
-
 template <typename K, typename V>
 HashTable<K,V>::HashTable(unsigned int size) {
     this->num_buckets = size;
