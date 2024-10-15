@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <vector>
+
 template <typename K, typename V>
 class HashTable {
 public:
@@ -8,30 +10,28 @@ public:
         K key;
         V value;
         Node* next;
-        Node(const K& k, const V& v) : key(k), value(v), next(nullptr) {}
+        Node(const K& k, V v) : key(k), value(v), next(nullptr) {}
     };
 
 public:
-    HashTable(unsigned int size = 8);
+    HashTable(unsigned int size = 1024);
     ~HashTable();
 
-    V operator[](const K& key) const { return get(key); }
-
-    void insert(const K& key, const V& value);
+    V get(const K& key) const;
+    void put(const K& key, V value);
     bool remove(const K& key);
     bool contains(const K& key) const;
-    V get(const K& key) const;
+    std::vector<K> keys() const;
 
     unsigned int size() const { return current_size; }
 
-protected:
-    int hash(const K& key) const;
+private:
+    unsigned int hash(const K& key) const;
     void resize();
 
-protected:
+private:
     Node** table;
     unsigned int num_buckets;
     unsigned int current_size;
-
-    constexpr float resize_threshold = 0.75;
+    const float load_factor_threshold = 0.75;
 };
