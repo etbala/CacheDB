@@ -9,8 +9,6 @@
 #include <vector>
 #include <stdexcept>
 
-#include "socket.h"
-
 void die(const std::string& message) {
     int err = errno;
     std::cerr << "[" << err << "] " << message << std::endl;
@@ -18,17 +16,17 @@ void die(const std::string& message) {
 }
 
 int main() {
-    try {
-        NetworkSocket socket;
-        socket.connect("127.0.0.1", 1234);
+    // try {
+    //     NetworkSocket socket;
+    //     socket.connect("127.0.0.1", 1234);
 
-        socket.write("hello");
+    //     socket.write("hello");
 
-        std::string response = socket.read(64);
-        std::cout << "server says: " << response << std::endl;
-    } catch (const std::runtime_error& e) {
-        die(e.what());
-    }
+    //     std::string response = socket.read(64);
+    //     std::cout << "server says: " << response << std::endl;
+    // } catch (const std::runtime_error& e) {
+    //     die(e.what());
+    // }
 
     return 0;
 }
