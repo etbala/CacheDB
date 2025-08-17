@@ -10,6 +10,27 @@ CacheDB is an in-memory key-value store designed for high performance and low la
 - TTL Management: Set expiration times for keys to automatically manage data lifecycle.
 - Non-Blocking I/O: Handles multiple client connections efficiently.
 
+## Getting Started
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/etbala/CacheDB.git
+    cd CacheDB
+    ```
+
+2. **Build the project:**
+    ```bash
+    mkdir build
+    cd build
+    cmake ..
+    make -j$(nproc)
+    ```
+
+3. **Run tests:**
+    ```bash
+    ./all_tests
+    ```
+
 ## Commands
 
 ### GET
